@@ -42,17 +42,17 @@ public class Combo : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") != 0.0f)
         {
-            cancleCombo();
+            CancleCombo();
         }
 
         if (Input.GetAxis("Vertical") != 0.0f)
         {
-            cancleCombo();
+            CancleCombo();
         }
 
     }
 
-    public void CheckForNextAnimation()
+    private void CheckForNextAnimation()
     {
         if (Fire1Count > 0)
         {
@@ -61,12 +61,13 @@ public class Combo : MonoBehaviour
         }
         else
         {
-            cancleCombo();
+            CancleCombo();
         }
     }
 
-    private void cancleCombo()
+    private void CancleCombo()
     {
+        Fire1Count = 0;
         anim.SetInteger("combo", 0);
         combostage = 0;
         isDoingComboMove = false;
@@ -96,7 +97,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 2:
@@ -109,7 +110,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 3:
@@ -122,7 +123,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 4:
@@ -135,7 +136,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 5:
@@ -148,7 +149,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 6:
@@ -161,7 +162,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
             case 7:
@@ -174,7 +175,7 @@ public class Combo : MonoBehaviour
                 }
                 else
                 {
-                    cancleCombo();
+                    CancleCombo();
                 }
                 break;
         }
