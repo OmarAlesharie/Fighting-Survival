@@ -21220,15 +21220,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 1
   m_Events:
-  - time: 0.3
+  - time: 0.33333334
     functionName: CheckForNextAnimation
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.4
-    functionName: CancleCombo
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
