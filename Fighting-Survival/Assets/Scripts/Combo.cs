@@ -5,12 +5,17 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Combo : MonoBehaviour
 {
-    
+    public Collider PlayerRightHand;
+    public Collider PlayerLiftHand;
+    public Collider PlayerRightFoot;
+    public Collider PlayerLiftFoot;
+
     private Animator anim;
     private int combostage;
     private int Fire1Count;
     private bool isDoingComboMove;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,7 @@ public class Combo : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
+            EnableColliders(true);
             Fire1Count = 0;
             anim.SetInteger("combo", 8);
             isDoingComboMove = true;
@@ -52,8 +58,17 @@ public class Combo : MonoBehaviour
 
     }
 
+    void EnableColliders(bool status)
+    {
+        PlayerRightHand.enabled = status;
+        PlayerLiftHand.enabled = status;
+        PlayerRightFoot.enabled = status;
+        PlayerLiftFoot.enabled = status;
+    }
+
     private void CheckForNextAnimation()
     {
+        EnableColliders(false);
         if (Fire1Count > 0)
         {
             isDoingComboMove = false;
@@ -79,10 +94,12 @@ public class Combo : MonoBehaviour
         {
             return;
         }
+
         switch (combostage)
         {
             case 0:
                 Fire1Count = 0;
+                EnableColliders(true);
                 anim.SetInteger("combo", 1);
                 combostage++;
                 isDoingComboMove = true;
@@ -90,6 +107,7 @@ public class Combo : MonoBehaviour
             case 1:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 2);
                     combostage++;
@@ -103,6 +121,7 @@ public class Combo : MonoBehaviour
             case 2:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 3);
                     combostage++;
@@ -116,6 +135,7 @@ public class Combo : MonoBehaviour
             case 3:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 4);
                     combostage++;
@@ -129,6 +149,7 @@ public class Combo : MonoBehaviour
             case 4:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 5);
                     combostage++;
@@ -142,6 +163,7 @@ public class Combo : MonoBehaviour
             case 5:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 6);
                     combostage++;
@@ -155,6 +177,7 @@ public class Combo : MonoBehaviour
             case 6:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 7);
                     combostage++;
@@ -168,6 +191,7 @@ public class Combo : MonoBehaviour
             case 7:
                 if (Fire1Count > 0)
                 {
+                    EnableColliders(true);
                     Fire1Count = 0;
                     anim.SetInteger("combo", 8);
                     combostage = 0;

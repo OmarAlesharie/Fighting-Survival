@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerHand
+  - Enemy
+  - PlayerFoot
+  - LeftFoot
+  - RightFoot
+  - EnemyHand
+  - EnemyRighFoot
+  - EnemyLeftFoot
   layers:
   - Default
   - TransparentFX

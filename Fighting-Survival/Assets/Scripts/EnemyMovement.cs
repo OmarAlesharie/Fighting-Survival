@@ -5,10 +5,14 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public Collider EnemyRightHand;
+    public Collider EnemyLiftHand;
+    public Collider EnemyRightFoot;
+    public Collider EnemyLiftFoot;
+
     private Transform player;
     private NavMeshAgent nav;
     private Animator anim;
-    [SerializeField]
     private bool CanAnimate;
     private int AttackMove;
 
@@ -22,21 +26,39 @@ public class EnemyMovement : MonoBehaviour
         CanAnimate = true;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        nav.SetDestination(player.position);
-        DoAnimations();
+        if(nav.enabled)
+        {
+            nav.SetDestination(player.position);
+            DoAnimations();
+        }
+            
     }
 
     void AnimationStarted()
     {
         CanAnimate = false;
+        EnableColliders(true);
     }
 
     void AnimationFinished()
     {
         CanAnimate = true;
+        EnableColliders(false);
+    }
+
+    void EnableColliders(bool status)
+    {
+        EnemyRightHand.enabled = status;
+        EnemyLiftHand.enabled = status;
+        EnemyRightFoot.enabled = status;
+        EnemyLiftFoot.enabled = status;
+    }
+
+    void EnableNavMesh()
+    {
+        nav.enabled = true;
     }
 
     void DoAnimations()
