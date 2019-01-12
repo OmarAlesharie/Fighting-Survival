@@ -8,12 +8,15 @@ public class EnemyCollisionDetection : MonoBehaviour
 
     public Animator anim;
     public NavMeshAgent nav;
+    public GameObject Enemy;
+
+    private EnemyHealth enemyHealth; 
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyHealth = Enemy.GetComponent<EnemyHealth>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,6 +27,7 @@ public class EnemyCollisionDetection : MonoBehaviour
             anim.enabled = true;
 
             anim.SetTrigger("GotAhit");
+            enemyHealth.SetHealth(10);
         }
         if (other.CompareTag("LeftFoot"))
         {
@@ -32,12 +36,7 @@ public class EnemyCollisionDetection : MonoBehaviour
 
             anim.SetTrigger("knockdown");
             nav.enabled = false;
+            enemyHealth.SetHealth(20);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
