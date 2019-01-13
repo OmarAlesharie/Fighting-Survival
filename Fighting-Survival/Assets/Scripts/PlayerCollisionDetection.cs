@@ -16,7 +16,7 @@ public class PlayerCollisionDetection : MonoBehaviour
             anim.enabled = true;
 
             anim.SetTrigger("GotAHit");
-            PlayerHealth.instance.SetHealth(5);
+            PlayerHealth.instance.SetHealth(-5);
         }
         if (other.CompareTag("EnemyLeftFoot"))
         {
@@ -25,7 +25,7 @@ public class PlayerCollisionDetection : MonoBehaviour
 
             anim.SetTrigger("knockdown");
             Controller.enabled = false;
-            PlayerHealth.instance.SetHealth(10);
+            PlayerHealth.instance.SetHealth(-10);
         }
     }
 }

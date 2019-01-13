@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth instance = null;
     public Slider HealthSlider;
+    public ThirdPersonUserControl PlayerController;
 
+    private Animator anim;
     private int Health;
+    private bool IsDead;
 
     private void Awake()
     {
@@ -20,6 +24,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        anim = GetComponent<Animator>();
+        IsDead = false;
     }
 
     // Start is called before the first frame update
@@ -30,8 +36,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void SetHealth(int damage)
     {
-        Health -= damage;
+        Health += damage;
         UpdateHealthUI();
+        if (Health <= 0) IsDead = true;
+    }
+
+    void PlayerIsdead()
+    {
+        if (IsDead)
+        {
+            PlayerController.enabled = false;
+            anim.enabled = false;
+        } 
     }
 
     void UpdateHealthUI()
