@@ -12,6 +12,7 @@ TagManager:
   - EnemyHand
   - EnemyRighFoot
   - EnemyLeftFoot
+  - HealthItem
   layers:
   - Default
   - TransparentFX

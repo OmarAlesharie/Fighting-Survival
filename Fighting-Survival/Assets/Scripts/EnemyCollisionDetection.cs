@@ -11,13 +11,13 @@ public class EnemyCollisionDetection : MonoBehaviour
     public GameObject Enemy;
 
     private EnemyHealth enemyHealth;
-    private bool CanDelete;
+    //private bool CanDelete;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        CanDelete = false;
+        //CanDelete = false;
         enemyHealth = Enemy.GetComponent<EnemyHealth>();
     }
 

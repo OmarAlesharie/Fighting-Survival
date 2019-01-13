@@ -52,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (EnemyIsDead)
         {
+            GameManager.Instance.OneEnemyKilled();
             Destroy(gameObject);
         } 
     }

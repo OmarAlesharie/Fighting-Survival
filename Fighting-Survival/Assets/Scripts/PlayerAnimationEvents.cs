@@ -9,6 +9,9 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     void EnablePlayerController()
     {
-        Controller.enabled = true;
+        if (!GameManager.Instance.IsPlayerDead())
+        {
+            Controller.enabled = true;
+        }
     }
 }

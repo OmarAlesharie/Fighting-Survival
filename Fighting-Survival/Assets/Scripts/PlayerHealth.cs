@@ -37,8 +37,14 @@ public class PlayerHealth : MonoBehaviour
     public void SetHealth(int damage)
     {
         Health += damage;
+        if (Health > 100) Health = 100;
         UpdateHealthUI();
-        if (Health <= 0) IsDead = true;
+        if (Health <= 0)
+        {
+            IsDead = true;
+            GameManager.Instance.PlayerLost();
+        }
+            
     }
 
     void PlayerIsdead()
@@ -48,6 +54,15 @@ public class PlayerHealth : MonoBehaviour
             PlayerController.enabled = false;
             anim.enabled = false;
         } 
+    }
+
+    void PlayerIsDeadStanding()
+    {
+        if (IsDead)
+        {
+            anim.SetTrigger("knockdown");
+            PlayerController.enabled = false;
+        }
     }
 
     void UpdateHealthUI()

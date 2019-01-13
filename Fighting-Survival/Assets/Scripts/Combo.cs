@@ -29,6 +29,10 @@ public class Combo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.IsPlayerWon())
+        {
+            return;
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             Fire1Count++;
