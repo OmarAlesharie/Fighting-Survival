@@ -10,12 +10,14 @@ public class EnemyCollisionDetection : MonoBehaviour
     public NavMeshAgent nav;
     public GameObject Enemy;
 
-    private EnemyHealth enemyHealth; 
+    private EnemyHealth enemyHealth;
+    private bool CanDelete;
 
     
     // Start is called before the first frame update
     void Start()
     {
+        CanDelete = false;
         enemyHealth = Enemy.GetComponent<EnemyHealth>();
     }
 
