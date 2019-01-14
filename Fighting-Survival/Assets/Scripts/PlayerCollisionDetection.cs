@@ -6,7 +6,6 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerCollisionDetection : MonoBehaviour
 {
     public Animator anim;
-    public ThirdPersonUserControl Controller;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,8 +23,8 @@ public class PlayerCollisionDetection : MonoBehaviour
             anim.enabled = true;
 
             anim.SetTrigger("knockdown");
-            Controller.enabled = false;
             PlayerHealth.instance.SetHealth(-10);
+            GetComponent<Collider>().enabled = false;
         }
     }
 }

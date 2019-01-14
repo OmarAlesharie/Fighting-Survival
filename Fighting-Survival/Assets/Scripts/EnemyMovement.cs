@@ -65,7 +65,12 @@ public class EnemyMovement : MonoBehaviour
         EnemyLiftFoot.enabled = status;
     }
 
-    void EnableNavMesh()
+    void DesableNav()
+    {
+        nav.enabled = false;
+    }
+
+    void EnableNav()
     {
         nav.enabled = true;
     }

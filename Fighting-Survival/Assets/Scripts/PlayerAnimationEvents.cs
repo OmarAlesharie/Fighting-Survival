@@ -6,6 +6,18 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerAnimationEvents : MonoBehaviour
 {
     public ThirdPersonUserControl Controller;
+    public Collider CollisionCollider;
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    void EnableCollisionCollider()
+    {
+        CollisionCollider.enabled = true;
+    }
 
     void EnablePlayerController()
     {
@@ -13,5 +25,10 @@ public class PlayerAnimationEvents : MonoBehaviour
         {
             Controller.enabled = true;
         }
+    }
+
+    void DesablePlayerController()
+    {
+        Controller.enabled = false;
     }
 }

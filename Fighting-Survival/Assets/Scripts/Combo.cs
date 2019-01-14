@@ -33,6 +33,10 @@ public class Combo : MonoBehaviour
         {
             return;
         }
+        if (GameManager.Instance.IsPlayerDead())
+        {
+            return;
+        }
         if (Input.GetButtonDown("Fire1"))
         {
             Fire1Count++;
@@ -46,6 +50,8 @@ public class Combo : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
+            anim.enabled = false;
+            anim.enabled = true;
             EnableColliders(true);
             Fire1Count = 0;
             anim.SetInteger("combo", 8);
@@ -94,6 +100,12 @@ public class Combo : MonoBehaviour
         isDoingComboMove = false;
     }
 
+    private void ResetAnimationTriggers()
+    {
+        anim.ResetTrigger("GotAHit");
+        anim.ResetTrigger("knockdown");
+    }
+
     void DoComboAttack()
     {
         if (isDoingComboMove)
@@ -109,6 +121,7 @@ public class Combo : MonoBehaviour
                 anim.SetInteger("combo", 1);
                 combostage++;
                 isDoingComboMove = true;
+                ResetAnimationTriggers();
                 break;
             case 1:
                 if (Fire1Count > 0)
@@ -118,6 +131,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 2);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -132,6 +146,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 3);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -146,6 +161,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 4);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -160,6 +176,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 5);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -174,6 +191,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 6);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -188,6 +206,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 7);
                     combostage++;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {
@@ -202,6 +221,7 @@ public class Combo : MonoBehaviour
                     anim.SetInteger("combo", 8);
                     combostage = 0;
                     isDoingComboMove = true;
+                    ResetAnimationTriggers();
                 }
                 else
                 {

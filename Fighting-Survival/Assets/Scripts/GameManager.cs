@@ -21,10 +21,12 @@ public class GameManager : MonoBehaviour
 
     [Space]
     public GameObject[] Items;
+    public GameObject WinLostMenu;
 
     private int CurrentEnemyCount;
     private bool PlayerIsDead;
     private bool PlayerWon;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +42,14 @@ public class GameManager : MonoBehaviour
         PlayerIsDead = false;
         PlayerWon = false;
         StartCoroutine("StartAttackStages");
+        WinLostMenu.SetActive(false);
     }
 
     public void PlayerLost()
     {
         PlayerIsDead = true;
         InfoText.text = "You Lost!";
+        DisplayWinOrLoseMenu();
     }
 
     public bool IsPlayerDead()
@@ -73,6 +77,7 @@ public class GameManager : MonoBehaviour
 
         InfoText.text = "You win!";
         PlayerWon = true;
+        DisplayWinOrLoseMenu();
     }
 
     public bool IsPlayerWon()
@@ -89,5 +94,12 @@ public class GameManager : MonoBehaviour
     {
         Vector3 NewItemPosition = new Vector3(Random.Range(0.0f, 10.0f), 10.0f, Random.Range(0.0f, 10.0f));
         GameObject Item = Instantiate(Items[Random.Range(0, Items.Length)], NewItemPosition, Quaternion.identity);
+    }
+
+    void DisplayWinOrLoseMenu()
+    {
+        WinLostMenu.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
