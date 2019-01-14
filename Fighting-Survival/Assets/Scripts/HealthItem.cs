@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class HealthItem : MonoBehaviour
 {
-    private int Value;
+    public GameObject AddedValue;
     // Start is called before the first frame update
     void Start()
     {
-        Value = Random.Range(10, 60);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerHealth.instance.SetHealth(Value);
+            Instantiate(AddedValue, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
     

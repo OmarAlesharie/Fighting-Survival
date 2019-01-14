@@ -38,6 +38,8 @@ public class Combo : MonoBehaviour
             Fire1Count++;
             if (!isDoingComboMove)
             {
+                anim.enabled = false;
+                anim.enabled = true;
                 DoComboAttack();
             } 
         }

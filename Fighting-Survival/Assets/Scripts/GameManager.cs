@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [Range(1,7)]
     public int[] Stages;
 
+    [Space]
+    public GameObject[] Items;
+
     private int CurrentEnemyCount;
     private bool PlayerIsDead;
     private bool PlayerWon;
@@ -65,6 +68,7 @@ public class GameManager : MonoBehaviour
             {
                 yield return null;
             }
+            DropItem();
         }
 
         InfoText.text = "You win!";
@@ -79,5 +83,11 @@ public class GameManager : MonoBehaviour
     public void OneEnemyKilled()
     {
         CurrentEnemyCount--;
+    }
+
+    void DropItem()
+    {
+        Vector3 NewItemPosition = new Vector3(Random.Range(0.0f, 10.0f), 10.0f, Random.Range(0.0f, 10.0f));
+        GameObject Item = Instantiate(Items[Random.Range(0, Items.Length)], NewItemPosition, Quaternion.identity);
     }
 }

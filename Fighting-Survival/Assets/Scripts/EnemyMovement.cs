@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
     private Animator anim;
     private bool CanAnimate;
     private int AttackMove;
+    private bool GameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +25,18 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetBool("IsMoving", true);
         CanAnimate = true;
+        GameOver = false;
     }
 
     void FixedUpdate()
     {
+        if (GameOver) return;
+        if (GameManager.Instance.IsPlayerDead())
+        {
+            anim.SetTrigger("Winning");
+            GameOver = true;
+            return;
+        }
         if(nav.enabled)
         {
             nav.SetDestination(player.position);

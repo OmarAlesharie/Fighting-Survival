@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1162910085969499026}
   - component: {fileID: 3077264649131601006}
   - component: {fileID: 8653650804856868829}
+  - component: {fileID: 3051826750823030872}
   m_Layer: 0
   m_Name: Health
   m_TagString: HealthItem
@@ -79,6 +80,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.43, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3051826750823030872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392741653346771882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfb41d7af3b6f14995185426101ceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddedValue: {fileID: 5491754278957156389, guid: 28d62eab809ad9f4ca48f42475c824a8,
+    type: 3}
 --- !u!1001 &4207931083364417558
 PrefabInstance:
   m_ObjectHideFlags: 0
