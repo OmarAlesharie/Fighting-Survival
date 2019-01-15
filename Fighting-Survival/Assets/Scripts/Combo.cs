@@ -10,6 +10,8 @@ public class Combo : MonoBehaviour
     public Collider PlayerRightFoot;
     public Collider PlayerLiftFoot;
 
+    public Collider CollisionCollider;
+
     private Animator anim;
     private int combostage;
     private int Fire1Count;
@@ -42,6 +44,7 @@ public class Combo : MonoBehaviour
             Fire1Count++;
             if (!isDoingComboMove)
             {
+                CollisionCollider.enabled = true;
                 anim.enabled = false;
                 anim.enabled = true;
                 DoComboAttack();
@@ -50,6 +53,7 @@ public class Combo : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
+            CollisionCollider.enabled = true;
             anim.enabled = false;
             anim.enabled = true;
             EnableColliders(true);

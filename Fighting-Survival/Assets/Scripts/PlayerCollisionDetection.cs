@@ -7,6 +7,16 @@ public class PlayerCollisionDetection : MonoBehaviour
 {
     public Animator anim;
 
+    public AudioClip[] Punches;
+    public AudioClip[] Kickes;
+    
+    private AudioSource playerFxSource;
+
+    private void Start()
+    {
+        playerFxSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyHand") || other.CompareTag("EnemyRighFoot"))
@@ -14,6 +24,22 @@ public class PlayerCollisionDetection : MonoBehaviour
             anim.enabled = false;
             anim.enabled = true;
 
+            if (other.CompareTag("EnemyHand"))
+            {
+                playerFxSource.clip = Punches[Random.Range(0, Punches.Length)];
+                if (!playerFxSource.isPlaying)
+                {
+                    playerFxSource.Play();
+                }
+            }
+            if (other.CompareTag("EnemyRighFoot"))
+            {
+                playerFxSource.clip = Kickes[Random.Range(0, Kickes.Length)];
+                if (!playerFxSource.isPlaying)
+                {
+                    playerFxSource.Play();
+                }
+            }
             anim.SetTrigger("GotAHit");
             PlayerHealth.instance.SetHealth(-5);
         }
@@ -21,6 +47,15 @@ public class PlayerCollisionDetection : MonoBehaviour
         {
             anim.enabled = false;
             anim.enabled = true;
+
+            if (other.CompareTag("EnemyLeftFoot"))
+            {
+                playerFxSource.clip = Kickes[Random.Range(0, Kickes.Length)];
+                if (!playerFxSource.isPlaying)
+                {
+                    playerFxSource.Play();
+                }
+            }
 
             anim.SetTrigger("knockdown");
             PlayerHealth.instance.SetHealth(-10);

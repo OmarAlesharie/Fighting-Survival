@@ -10,14 +10,17 @@ public class EnemyCollisionDetection : MonoBehaviour
     public NavMeshAgent nav;
     public GameObject Enemy;
 
-    private EnemyHealth enemyHealth;
-    //private bool CanDelete;
+    public AudioClip[] Punches;
+    public AudioClip[] Kickes;
 
+    private AudioSource enemyFxSource;
+
+    private EnemyHealth enemyHealth;
     
     // Start is called before the first frame update
     void Start()
     {
-        //CanDelete = false;
+        enemyFxSource = GetComponent<AudioSource>();
         enemyHealth = Enemy.GetComponent<EnemyHealth>();
     }
 
@@ -28,6 +31,23 @@ public class EnemyCollisionDetection : MonoBehaviour
             anim.enabled = false;
             anim.enabled = true;
 
+            if (other.CompareTag("PlayerHand"))
+            {
+                enemyFxSource.clip = Punches[Random.Range(0, Punches.Length)];
+                if (!enemyFxSource.isPlaying)
+                {
+                    enemyFxSource.Play();
+                }
+            }
+            if (other.CompareTag("RightFoot"))
+            {
+                enemyFxSource.clip = Kickes[Random.Range(0, Kickes.Length)];
+                if (!enemyFxSource.isPlaying)
+                {
+                    enemyFxSource.Play();
+                }
+            }
+
             anim.SetTrigger("GotAhit");
             enemyHealth.SetHealth(10);
         }
@@ -35,6 +55,15 @@ public class EnemyCollisionDetection : MonoBehaviour
         {
             anim.enabled = false;
             anim.enabled = true;
+
+            if (other.CompareTag("LeftFoot"))
+            {
+                enemyFxSource.clip = Kickes[Random.Range(0, Kickes.Length)];
+                if (!enemyFxSource.isPlaying)
+                {
+                    enemyFxSource.Play();
+                }
+            }
 
             anim.SetTrigger("knockdown");
             nav.enabled = false;

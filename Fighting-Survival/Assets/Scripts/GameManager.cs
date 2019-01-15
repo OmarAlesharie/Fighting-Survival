@@ -23,9 +23,13 @@ public class GameManager : MonoBehaviour
     public GameObject[] Items;
     public GameObject WinLostMenu;
 
+    public AudioSource NewEnemiesWave;
+    public AudioSource NewItemDrop;
+
     private int CurrentEnemyCount;
     private bool PlayerIsDead;
     private bool PlayerWon;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -49,6 +53,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerIsDead = true;
         InfoText.text = "You Lost!";
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         DisplayWinOrLoseMenu();
     }
 
@@ -68,6 +74,9 @@ public class GameManager : MonoBehaviour
                 int EnemyToSpawn = Random.Range(0, Enemies.Length);
                 Instantiate(Enemies[EnemyToSpawn], SpawnPoints[i].position, SpawnPoints[i].rotation);
             }
+
+            NewEnemiesWave.Play();
+
             while (CurrentEnemyCount > 0)
             {
                 yield return null;
@@ -92,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     void DropItem()
     {
+        NewItemDrop.Play();
         Vector3 NewItemPosition = new Vector3(Random.Range(0.0f, 10.0f), 10.0f, Random.Range(0.0f, 10.0f));
         GameObject Item = Instantiate(Items[Random.Range(0, Items.Length)], NewItemPosition, Quaternion.identity);
     }
