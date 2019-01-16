@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
 
     public AudioMixer audioMixer;
 
+    public GameObject LoadingUIs;
+    public Slider LoadingProgress;
+
     private void Start()
     {
         SetOptionsUI();
@@ -29,6 +32,24 @@ public class MainMenu : MonoBehaviour
     {
         audioMixer.SetFloat("Music", Setting.GetMusicLevel());
         audioMixer.SetFloat("SoundFx", Setting.GetSoundFxLevel());
+    }
+
+    public void LoadGameLevelAsync(int LevelIndex)
+    {
+        StartCoroutine(LoadAsynchronously(LevelIndex));
+    }
+
+    IEnumerator LoadAsynchronously(int SceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(SceneIndex);
+        LoadingUIs.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            LoadingProgress.value = progress;
+            yield return null;
+        }
     }
 
     public void SetSfxLvl(float sfxLvl)
