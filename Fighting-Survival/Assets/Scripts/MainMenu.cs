@@ -15,9 +15,12 @@ public class MainMenu : MonoBehaviour
     public Toggle FreeCameraToggle;
     public Toggle FollowCameraToggle;
 
+    public Slider MusicSlider;
+    public Slider SoundFxSlider;
 
 
-    private void Start()
+
+    private void Awake()
     {
         SetOptionsUI();
     }
@@ -77,6 +80,9 @@ public class MainMenu : MonoBehaviour
             default:
                 break;
         }
+
+        MusicSlider.value = Setting.GetMusicLevel();
+        SoundFxSlider.value = Setting.GetSoundFxLevel();
     }
     public void StartGame()
     {

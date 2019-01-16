@@ -17,6 +17,28 @@ public class GameSetting : ScriptableObject
 
     private DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
     private CameraType cameraType = CameraType.Free;
+    private float MusicLevel = 0.0f;
+    private float SoundFxLevel = 0.0f;
+
+    public void SetMusicLevel(float Lvl)
+    {
+        MusicLevel = Lvl;
+    }
+
+    public float GetMusicLevel()
+    {
+        return MusicLevel;
+    }
+
+    public void SetSoundFxLevel(float Lvl)
+    {
+        SoundFxLevel = Lvl;
+    }
+
+    public float GetSoundFxLevel()
+    {
+        return SoundFxLevel;
+    }
 
     public void Set_DifficultyLevel(DifficultyLevel difficulty)
     {
