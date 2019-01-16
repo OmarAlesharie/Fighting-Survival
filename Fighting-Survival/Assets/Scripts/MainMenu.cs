@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,12 +16,35 @@ public class MainMenu : MonoBehaviour
     public Slider MusicSlider;
     public Slider SoundFxSlider;
 
+    public AudioMixer audioMixer;
 
-
-    private void Awake()
+    private void Start()
     {
         SetOptionsUI();
         Time.timeScale = 1.0f;
+        InitMusicLevel();
+    }
+
+    void InitMusicLevel()
+    {
+        audioMixer.SetFloat("Music", Setting.GetMusicLevel());
+        audioMixer.SetFloat("SoundFx", Setting.GetSoundFxLevel());
+    }
+
+    public void SetSfxLvl(float sfxLvl)
+    {
+        audioMixer.SetFloat("SoundFx", sfxLvl);
+    }
+
+    public void SetMusicLvl(float musicLvl)
+    {
+        audioMixer.SetFloat("Music", musicLvl);
+    }
+
+    public void SaveAudioSetting()
+    {
+        Setting.SetMusicLevel(MusicSlider.value);
+        Setting.SetSoundFxLevel(SoundFxSlider.value);
     }
 
     public void EasySelected()

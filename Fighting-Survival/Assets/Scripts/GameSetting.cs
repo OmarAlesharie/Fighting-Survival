@@ -11,7 +11,11 @@ public class GameSetting : ScriptableObject
     }
     
     private DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
+
+    [SerializeField]
     private float MusicLevel = 0.0f;
+    [SerializeField]
+
     private float SoundFxLevel = 0.0f;
 
     public void SetMusicLevel(float Lvl)

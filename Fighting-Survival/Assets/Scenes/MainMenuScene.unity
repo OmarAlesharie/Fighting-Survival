@@ -670,7 +670,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1895596485}
+      - m_Target: {fileID: 1895596482}
         m_MethodName: SetMusicLvl
         m_Mode: 0
         m_Arguments:
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1895596485}
+      - m_Target: {fileID: 1895596482}
         m_MethodName: SetSfxLvl
         m_Mode: 0
         m_Arguments:
@@ -3214,7 +3214,6 @@ GameObject:
   - component: {fileID: 1895596483}
   - component: {fileID: 1895596482}
   - component: {fileID: 1895596484}
-  - component: {fileID: 1895596485}
   m_Layer: 0
   m_Name: MainMenuController
   m_TagString: Untagged
@@ -3240,6 +3239,7 @@ MonoBehaviour:
   HardToggle: {fileID: 1097588178}
   MusicSlider: {fileID: 272699971}
   SoundFxSlider: {fileID: 590478155}
+  audioMixer: {fileID: 24100000, guid: ee4726ff4bd56254b9fda852b2f6beee, type: 2}
 --- !u!4 &1895596483
 Transform:
   m_ObjectHideFlags: 0
@@ -3351,20 +3351,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1895596485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895596481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91aded178cd39f49b9a55b0f3d2a5a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: ee4726ff4bd56254b9fda852b2f6beee, type: 2}
-  Setting: {fileID: 11400000, guid: 1de37cb75895d384e97806071e63ca2d, type: 2}
 --- !u!1 &1909517406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,6 +3444,17 @@ MonoBehaviour:
       - m_Target: {fileID: 873701509}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1895596482}
+        m_MethodName: SaveAudioSetting
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
