@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public Text InfoText;
     public static GameManager Instance = null;
+    public GameSetting Setting;
 
     [Header("Enemies Prefabs")]
     public GameObject[] Enemies;

@@ -420,6 +420,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoText: {fileID: 495354636}
+  Setting: {fileID: 11400000, guid: 1de37cb75895d384e97806071e63ca2d, type: 2}
+  FreeCamera: {fileID: 1844201586508815443}
+  FollowCamera: {fileID: 1844201586508815442}
   Enemies:
   - {fileID: 3825710483723331613, guid: cd6339a553b51964ea83c22575829aaf, type: 3}
   - {fileID: 2043558830, guid: 40f57f75009ee0549ab2daba0547dad0, type: 3}
@@ -992,6 +995,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1844201586078123956, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+        type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8672549410285940065, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1004,3 +1012,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+--- !u!1 &1844201586508815442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1844201586084704848, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1844201586508815441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1844201586508815443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1844201586291731968, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1844201586508815441}
+  m_PrefabAsset: {fileID: 0}

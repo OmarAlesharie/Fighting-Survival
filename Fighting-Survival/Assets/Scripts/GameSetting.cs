@@ -9,14 +9,8 @@ public class GameSetting : ScriptableObject
     {
         Easy,Normal,Hard
     }
-
-    public enum CameraType
-    {
-        Free,Follow
-    }
-
+    
     private DifficultyLevel difficultyLevel = DifficultyLevel.Easy;
-    private CameraType cameraType = CameraType.Free;
     private float MusicLevel = 0.0f;
     private float SoundFxLevel = 0.0f;
 
@@ -45,18 +39,8 @@ public class GameSetting : ScriptableObject
         difficultyLevel = difficulty;
     }
 
-    public void Set_CameraType(CameraType CamType)
-    {
-        cameraType = CamType;
-    }
-
     public DifficultyLevel Get_DifficultyLevel()
     {
         return difficultyLevel;
-    }
-
-    public CameraType Get_CameraType()
-    {
-        return cameraType;
     }
 }

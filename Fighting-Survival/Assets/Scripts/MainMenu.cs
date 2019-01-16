@@ -12,9 +12,6 @@ public class MainMenu : MonoBehaviour
     public Toggle NormalToggle;
     public Toggle HardToggle;
 
-    public Toggle FreeCameraToggle;
-    public Toggle FollowCameraToggle;
-
     public Slider MusicSlider;
     public Slider SoundFxSlider;
 
@@ -40,16 +37,6 @@ public class MainMenu : MonoBehaviour
         Setting.Set_DifficultyLevel(GameSetting.DifficultyLevel.Hard);
     }
 
-    public void FreeCameraSelected()
-    {
-        Setting.Set_CameraType(GameSetting.CameraType.Free);
-    }
-
-    public void FollowCameraSelected()
-    {
-        Setting.Set_CameraType(GameSetting.CameraType.Follow);
-    }
-
     void SetOptionsUI()
     {
         GameSetting.DifficultyLevel difficultyLevel = Setting.Get_DifficultyLevel();
@@ -63,19 +50,6 @@ public class MainMenu : MonoBehaviour
                 break;
             case GameSetting.DifficultyLevel.Hard:
                 HardToggle.isOn = true;
-                break;
-            default:
-                break;
-        }
-
-        GameSetting.CameraType cameraType = Setting.Get_CameraType();
-        switch (cameraType)
-        {
-            case GameSetting.CameraType.Free:
-                FreeCameraToggle.isOn = true;
-                break;
-            case GameSetting.CameraType.Follow:
-                FollowCameraToggle.isOn = true;
                 break;
             default:
                 break;
