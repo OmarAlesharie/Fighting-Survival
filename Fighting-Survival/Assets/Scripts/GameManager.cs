@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class GameManager : MonoBehaviour
 {
     public Text InfoText;
+    public Text DifficultyText;
     public static GameManager Instance = null;
     public GameSetting Setting;
 
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     private bool PlayerWon;
 
     private bool Paused;
+
+    GameSetting.DifficultyLevel difficultyLevel;
     
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,8 @@ public class GameManager : MonoBehaviour
         WinLostMenu.SetActive(false);
         Paused = false;
         Time.timeScale = 1.0f;
+        difficultyLevel = Setting.Get_DifficultyLevel();
+        DifficultyText.text = difficultyLevel.ToString();
     }
 
     public void PlayerLost()
@@ -126,7 +131,18 @@ public class GameManager : MonoBehaviour
             {
                 yield return null;
             }
-            DropItem();
+
+            if (difficultyLevel == GameSetting.DifficultyLevel.Easy)
+            {
+                DropItem();
+                DropItem();
+            }
+
+            if (difficultyLevel == GameSetting.DifficultyLevel.Normal)
+            {
+                DropItem();
+            }
+            
         }
 
         InfoText.text = "You win!";

@@ -420,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InfoText: {fileID: 495354636}
+  DifficultyText: {fileID: 6159068597434901214}
   Setting: {fileID: 11400000, guid: 1de37cb75895d384e97806071e63ca2d, type: 2}
   thirdPersonCharacter: {fileID: 1844201586508815443}
   thirdPersonUserControl: {fileID: 1844201586508815442}
@@ -995,10 +996,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1844201586078123956, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
-        type: 3}
-      propertyPath: m_Target
-      value: 
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.5200043
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.08999634
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.6112018
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.467
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.7140045
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.38588557
+      objectReference: {fileID: 0}
+    - target: {fileID: 495354633, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.532
       objectReference: {fileID: 0}
     - target: {fileID: 8672549410285940065, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
         type: 3}
@@ -1034,5 +1062,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6159068597434901214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6159068597434901214, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1844201586508815441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
