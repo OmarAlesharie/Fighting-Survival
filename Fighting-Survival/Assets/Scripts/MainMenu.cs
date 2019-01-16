@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     public GameObject LoadingUIs;
     public Slider LoadingProgress;
+    public Text ProgressText;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class MainMenu : MonoBehaviour
         {
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             LoadingProgress.value = progress;
+            ProgressText.text = progress * 100.0f + "%";
             yield return null;
         }
     }
