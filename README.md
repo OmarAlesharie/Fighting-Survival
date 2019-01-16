@@ -1,5 +1,5 @@
 # Fighting-Survival
-Endless fighting sample prototype 3D game  in Unity
+Fighting sample prototype 3D game  in Unity
 
 <img src="Fighting-Survival/Assets/Screenshots/14.png" width = 900>
 
