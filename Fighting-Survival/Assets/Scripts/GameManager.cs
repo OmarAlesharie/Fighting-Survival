@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class GameManager : MonoBehaviour
 {
     public Text InfoText;
     public static GameManager Instance = null;
     public GameSetting Setting;
+
+    public ThirdPersonCharacter thirdPersonCharacter;
+    public ThirdPersonUserControl thirdPersonUserControl;
 
     [Header("Enemies Prefabs")]
     public GameObject[] Enemies;
@@ -30,7 +34,8 @@ public class GameManager : MonoBehaviour
     private int CurrentEnemyCount;
     private bool PlayerIsDead;
     private bool PlayerWon;
-    
+
+    private bool Paused;
     
     // Start is called before the first frame update
     void Start()
@@ -48,15 +53,54 @@ public class GameManager : MonoBehaviour
         PlayerWon = false;
         StartCoroutine("StartAttackStages");
         WinLostMenu.SetActive(false);
+        Paused = false;
+        Time.timeScale = 1.0f;
     }
 
     public void PlayerLost()
     {
         PlayerIsDead = true;
         InfoText.text = "You Lost!";
+        CursorEnable();
+        DisplayWinOrLoseMenu();
+    }
+
+    void CursorEnable()
+    {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        DisplayWinOrLoseMenu();
+    }
+
+    void CursorDesable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void Update()
+    {
+        if (IsPlayerDead() || IsPlayerWon())
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Paused = !Paused;
+            if (Paused)
+            {
+                Time.timeScale = 0.0f;
+                WinLostMenu.SetActive(true);
+                CursorEnable();
+            }
+            else
+            {
+                Time.timeScale = 1.0f;
+                WinLostMenu.SetActive(false);
+                CursorDesable();
+            }
+        }
     }
 
     public bool IsPlayerDead()
@@ -110,7 +154,6 @@ public class GameManager : MonoBehaviour
     void DisplayWinOrLoseMenu()
     {
         WinLostMenu.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        CursorEnable();
     }
 }

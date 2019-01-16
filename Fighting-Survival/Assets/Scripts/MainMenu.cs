@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         SetOptionsUI();
+        Time.timeScale = 1.0f;
     }
 
     public void EasySelected()

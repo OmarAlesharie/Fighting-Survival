@@ -421,8 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InfoText: {fileID: 495354636}
   Setting: {fileID: 11400000, guid: 1de37cb75895d384e97806071e63ca2d, type: 2}
-  FreeCamera: {fileID: 1844201586508815443}
-  FollowCamera: {fileID: 1844201586508815442}
+  thirdPersonCharacter: {fileID: 1844201586508815443}
+  thirdPersonUserControl: {fileID: 1844201586508815442}
   Enemies:
   - {fileID: 3825710483723331613, guid: cd6339a553b51964ea83c22575829aaf, type: 3}
   - {fileID: 2043558830, guid: 40f57f75009ee0549ab2daba0547dad0, type: 3}
@@ -1012,15 +1012,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6b0f8ac2de388441a3ffb2157fb37b1, type: 3}
---- !u!1 &1844201586508815442 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1844201586084704848, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+--- !u!114 &1844201586508815442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1844201586453516074, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
     type: 3}
   m_PrefabInstance: {fileID: 1844201586508815441}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1844201586508815443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1844201586291731968, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1844201586508815443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1844201586453516072, guid: b6b0f8ac2de388441a3ffb2157fb37b1,
     type: 3}
   m_PrefabInstance: {fileID: 1844201586508815441}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
