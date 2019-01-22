@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
     void DropItem()
     {
         NewItemDrop.Play();
-        Vector3 NewItemPosition = new Vector3(Random.Range(0.0f, 10.0f), 10.0f, Random.Range(0.0f, 10.0f));
+        Vector3 NewItemPosition = new Vector3(Random.Range(0.0f, 7.0f), 7.0f, Random.Range(0.0f, 7.0f));
         GameObject Item = Instantiate(Items[Random.Range(0, Items.Length)], NewItemPosition, Quaternion.identity);
     }
 
