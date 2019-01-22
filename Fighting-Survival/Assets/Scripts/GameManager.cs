@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private bool Paused;
 
     GameSetting.DifficultyLevel difficultyLevel;
-    
+  
     // Start is called before the first frame update
     void Start()
     {
