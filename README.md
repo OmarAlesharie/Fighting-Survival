@@ -1,5 +1,5 @@
 # Fighting-Survival
-Fighting sample prototype 3D game <br>
+3D Fighting game simple prototype  game  in Unity <br>
 developed in Unity 2018.3.0f2 <br>
 
 <img src="Fighting-Survival/Assets/Screenshots/hit.png" width = 900>
